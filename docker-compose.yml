@@ -5,10 +5,16 @@ services:
     volumes:
       - ./public:/code/public
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    networks:
+      - internal
   php:
    image: php:8.1-fpm
    volumes:
      - ./:/code
+   networks:
+     - internal
 
   cli:
     build:
@@ -16,4 +22,7 @@ services:
       dockerfile: docker/php-cli/Dockerfile
     volumes:
       - ./:/code
+networks:
+  internal:
+    driver: bridge
 
