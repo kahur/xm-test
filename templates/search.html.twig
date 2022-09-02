@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-12">
+        <div class="col-md-6">
+            {{ form(form) }}
+        </div>
+        <div class="col-md-6">
+            {% if chartData is not empty %}
+                <canvas id="myChart" width="400" height="400"></canvas>
+                <script>chart.init('{{ chartData | raw }}')</script>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

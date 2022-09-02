@@ -10,6 +10,9 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $rapidApiKey: 'a1cad85fa9msh8471aa682d42949p1bd3cdjsn29f076165a7d'
+            $rapidApiHost: 'https://yh-finance.p.rapidapi.com/stock/v3/get-historical-data'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
